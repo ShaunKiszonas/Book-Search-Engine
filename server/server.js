@@ -6,14 +6,6 @@ const { ApolloServer } = require("apollo-server-express");
 const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/pizza-hunt",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
